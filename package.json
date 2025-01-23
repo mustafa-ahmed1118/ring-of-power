@@ -1,5 +1,5 @@
 {
-  "name": "graphics_tutorial",
+  "name": "ring_of_power",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,12 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "three": "^0.152.2"
+  },
   "devDependencies": {
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "@types/three": "^0.152.0",
+    "three-stdlib": "^2.18.1"
   }
 }
