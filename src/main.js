@@ -2,7 +2,6 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { FlakesTexture } from 'three/examples/jsm/textures/FlakesTexture.js';
-
 /* 
   Key Setup Objects for Three.js: 
 
@@ -42,8 +41,8 @@ torusTexture.repeat.y = 60;
 
 const torusMaterial = {
   clearcoat: 1.0,
-  clearcoatRoughness: 0,
-  metalness: 1,
+  clearcoatRoughness: 0.1,
+  metalness: 0.9,
   roughness: 0.5,
   color: 0xD4AF37,
   normalMap: torusTexture,
@@ -69,16 +68,16 @@ scene.add(moon);
 Array(200).fill().forEach(addStar);
 
 // Lighting effects
-const pointLight = new THREE.PointLight(0xffffff, 300);
-pointLight.position.set(0, 5, 20);
+const pointLight = new THREE.PointLight(0xffffff, 0.5);
+pointLight.position.set(0, 10, 40);
 pointLight.castShadow = true; // Enable shadow casting for the light
 pointLight.shadow.mapSize.width = 1024; // Higher value for better shadow quality
 pointLight.shadow.mapSize.height = 1024;
 pointLight.shadow.camera.near = 0.5;
 pointLight.shadow.camera.far = 500;
 
-const pointLight2 = new THREE.PointLight(0xffffff, 300);
-pointLight2.position.set(0, -5, -20);
+const pointLight2 = new THREE.PointLight(0xffffff, 0.5);
+pointLight2.position.set(0, -10, -40);
 pointLight2.castShadow = true; // Enable shadow casting for the second light
 pointLight2.shadow.mapSize.width = 1024;
 pointLight2.shadow.mapSize.height = 1024;
@@ -87,8 +86,7 @@ pointLight2.shadow.camera.far = 500;
 
 scene.add(pointLight, pointLight2);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(ambientLight);
+
 
 
 // Camera controls via mouse - zooming and rotating camera view
