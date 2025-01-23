@@ -1,10 +1,6 @@
-
-import { cameraPosition } from 'three/src/nodes/TSL.js';
 import './style.css';
 import * as THREE from 'three';
-import { GridHelper, PointLight } from 'three.js';
 import { FlakesTexture, OrbitControls, RGBELoader } from 'three/examples/jsm/Addons.js';
-import { clearcoat, clearcoatRoughness, metalness, normalMap } from 'three/tsl';
 
 /* 
   Key Setup Objects for Three.js: 

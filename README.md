@@ -4,23 +4,27 @@ This Three.js project features a rotating torus surrounded by a moon, enhanced w
 
 All core functionality is implemented in the `main.js` file.
 
-## How to Run
+## How to Run:
 
-1. **Clone the Repository**:
+1. **Clone the Repositor locally**:
    ```bash
    git clone https://github.com/mustafa-ahmed1118/ring-of-power.git
    ```
-2. **Install the dependencies**:
+2. **Open the folder**:
+   ```bash
+   cd ring-of-power
+   ```
+3. **Install the dependencies**:
    ```bash
    npm install
    ```
-3. **Run the program**:
+4. **Run the program**:
    ```bash
    npm run dev
    ```
-4. After running, you should be provided with a local host link, e.g., `http://localhost:5173/`.
+5. After running, you should be provided with a local host link, e.g., `http://localhost:5173/`.
 
-5. Visit the local host link provided to you.
+6. Visit the local host link provided to you.
 
 ## How to Use:
 
