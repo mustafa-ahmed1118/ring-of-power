@@ -3,12 +3,12 @@ import { cameraPosition } from 'three/src/nodes/TSL.js';
 import './style.css';
 import * as THREE from 'three';
 import { GridHelper, PointLight } from 'three.js';
-import { OrbitControls } from 'three/examples/jsm/Addons.js';
+import { FlakesTexture, OrbitControls, RGBELoader } from 'three/examples/jsm/Addons.js';
+import { clearcoat, clearcoatRoughness, metalness, normalMap } from 'three/tsl';
 
 
 /* 
- Instantiate the key elements required for three.js animation
- - scene contains all element
+   - scene contains all element
  - camera captures what is displayed to the user
  - renderer creates the the projected image from the camera
 */
@@ -20,19 +20,40 @@ const renderer = new THREE.WebGLRenderer({canvas: document.querySelector('#bg'),
 //Render setup
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+
+//for reflective effects
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.25;
+renderer.outputEncoding = THREE.sRGBEncoding;
+
+
 camera.position.setZ(30);
 
 //Texture preparation
 const moonTexture = new THREE.TextureLoader().load('src/moon_texture.png');
 const normalTexture = new THREE.TextureLoader().load('src/normal_texture.png');
-const spaceTexture = new THREE.TextureLoader().load('src/space_texture.png');
+
+let torusTexture = new THREE.CanvasTexture(new FlakesTexture());
+torusTexture.wrapS = THREE.RepeatWrapping;
+torusTexture.repeat.x=10;
+torusTexture.repeat.x=6;
+
+const torusMaterial = {
+  clearcoat:1.0,
+  clearcoatRoughness:0.1,
+  metalness:0.9,
+  roughness:0.5,
+  color:0xFFD700,
+  normalMap: torusTexture,
+  normalScale: new THREE.Vector2(0.15,0.15)
+};
 
 //set background
-scene.background = spaceTexture;
 
 //add and configure torus geometry 
 const geometry = new THREE.TorusGeometry(10,3,16,100);
-const material = new THREE.MeshStandardMaterial({color:0xFFD700});
+const material = new THREE.MeshPhysicalMaterial(torusMaterial);
 const torus = new THREE.Mesh(geometry, material);
 scene.add(torus)
 
@@ -48,19 +69,17 @@ scene.add(moon);
 Array(200).fill().forEach(addStar)
 
 //lighting effects
-const pointLight = new THREE.PointLight(0xffffff,5000)
+const pointLight = new THREE.PointLight(0xffffff,500)
 pointLight.position.set(20,5,20)
-const pointLight2 = new THREE.PointLight(0xffffff,5000)
+const pointLight2 = new THREE.PointLight(0xffffff,500)
 pointLight2.position.set(-20,-5,-20)
 scene.add(pointLight,pointLight2)
-
-
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
 
 const lightHelper = new THREE.PointLightHelper(pointLight)
 const gridHelper = new THREE.GridHelper(200,50)
-scene.add(lightHelper, gridHelper, ambientLight)
+scene.add(lightHelper)
 
 
 //Camera coontrols via mouse - zooming and rotating camera view
