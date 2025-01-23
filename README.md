@@ -4,6 +4,8 @@ This Three.js project features a rotating torus surrounding a moon, enhanced wit
 
 All core functionality is implemented in the `main.js` file.
 
+## Requirments:
+Node.js version 14 or later. 
 ## How to Run:
 
 1. **Clone the Repository locally**:
