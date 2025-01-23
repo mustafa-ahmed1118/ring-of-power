@@ -1,12 +1,12 @@
 # The Ring of Power
 
-This Three.js project features a rotating torus surrounded by a moon, enhanced with realistic lighting, textures, and shadows. The project serves as a personal, hands-on exploration of Three.js concepts such as scene setup, camera control, lighting, material properties, and shadow mapping.
+This Three.js project features a rotating torus surrounding a moon, enhanced with realistic lighting, textures, and shadows. The project serves as a personal, hands-on exploration of Three.js concepts such as scene setup, camera control, lighting, material properties, and shadow mapping.
 
 All core functionality is implemented in the `main.js` file.
 
 ## How to Run:
 
-1. **Clone the Repositor locally**:
+1. **Clone the Repository locally**:
    ```bash
    git clone https://github.com/mustafa-ahmed1118/ring-of-power.git
    ```
