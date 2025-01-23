@@ -1,6 +1,7 @@
 import './style.css';
 import * as THREE from 'three';
-import { FlakesTexture, OrbitControls} from 'three/examples/jsm/Addons.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { FlakesTexture } from 'three/examples/jsm/textures/FlakesTexture.js';
 
 /* 
   Key Setup Objects for Three.js: 
