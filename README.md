@@ -83,7 +83,6 @@ _Get spinning, my friend._
 4. **Lighting**:
 
    - Two `THREE.PointLight` objects are used to illuminate the scene, casting shadows on the torus and moon.
-   - An additional `THREE.AmbientLight` is added to provide soft ambient lighting.
 
 5. **Starfield**:
 
